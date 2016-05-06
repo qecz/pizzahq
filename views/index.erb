@@ -1,3 +1,40 @@
 <h2> Welcome pizza shop</h2>
 
+<div class="row">
+
+<% @products.each do |p|%>
+
+<div class="col-md-3">
+
+<div>
+<%= p.title %>
+</div>
+
+<div>
+<img src="<%= p.path_to_image %>">
+</div>
+
+
+<div>
+Описание: <%= p.description %>
+</div>
+
+<div>
+Размер: <%= p.size %>
+</div>
+
+<div>
+Цена: <%= p.price %>
+</div>
+
+<div>
+<button class="btn"onclick="add_to_cart(<%= p.id %>)">Add to cart</button>
+</div>
+
+</div>
+
+<% end %>
+<div>
+
+
 <button class="btn btn-primary" onclick="something()">Click me!</button>
