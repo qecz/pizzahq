@@ -8,5 +8,12 @@ function something()
 
 function add_to_cart(id)
 {
-alert('hello from function: ' + id)
+
+var x = window.localStorage.getItem('product_'+id);
+x = x*1 + 1;
+window.localStorage.setItem('product_'+id, x);
+
+alert('id: ' + id + '  - ' + x )
+
+
 }
