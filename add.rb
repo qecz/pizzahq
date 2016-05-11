@@ -12,4 +12,14 @@ hh[id]=hh[id].to_i + n
 
 puts hh.inspect
 
+total = 0
+
+hh.each do |key, value|
+
+total = total + value.to_i
+
+end
+
+puts "Total #{total}"  
+
 end
