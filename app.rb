@@ -25,8 +25,9 @@ end
 
 post '/cart' do
 	
-	orders_input = params[:orders]
-	@orders = parse_orders_line orders_input
+	@orders_input = params[:orders]
+	@orders = parse_orders_line @orders_input
+	@o
 	erb :cart 
 end
 
@@ -37,7 +38,7 @@ s1.each do |s|
 	s2 = s.split(/\=/)
 	s3=s2[0].split(/_/)
 	
-	key=s3[1]
+	key=Product.find(s3[1])
 	value=s2[1]
 	
 	arr2=[key, value]

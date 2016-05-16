@@ -1,8 +1,61 @@
 <h2> Корзина </h2>
 
-<table>
-
+<table class="table table-striped" >
+<thead>
+<tr>
+<td>#</td>
+<td>Имя</td>
+<td>Цена</td>
+<td>Количество</td>
+</tr>
+</thead>
+<tbody>
+<% total_price=0%>
+<% total_qty=0%>
 <% @orders.each do |o|%>
-	<tr><td><%= o[1] %></td></tr>
+
+	<tr>
+	<td><%=  %></td>
+	<td><%= o[0].title %></td> 
+	<td><%= o[0].price %></td>  
+	<td><%= o[1] %></td> 
+<% total_qty += o[1].to_i %>
+<% total_price += o[0].price*o[1].to_i %>
+	</tr>
+
 <% end %>
+<tr>
+<td></td>
+<td>Итого</td>
+<td><%= total_price %></td>
+<td><%= total_qty %>
+</td>
+<tr>
+</tbody>
 </table>
+
+
+<form action="/place_order" method="POST" role="form">
+
+<input name="order[orders_input]" type="hidden" value=<%= @orders_input %> >
+
+  <div class="form-group">
+    <label>Ваше имя</label>
+    <input name="order[name]" type="text" class="form-control" placeholder="Ваше имя" >
+  </div>
+
+  <div class="form-group">
+    <label>Ваш телефон</label>
+    <input name="order[phone]" type="text" class="form-control" placeholder="Ваш телефон" >
+  </div>
+
+  <div class="form-group">
+    <label>Адрес доставки</label>
+    <textarea name="order[address]" type="text" class="form-control" placeholder="Ваш телефон" ></textarea>
+  </div>
+
+  <button type="submit" class="btn btn-success">Сдеать заказ</button>
+
+</form>
+
+
