@@ -18,11 +18,34 @@ get '/' do
 end
 
 get '/about' do
-	erb :about 
+
+	erb :about
+	
 end
 
 post '/cart' do
-	erb "heelo" 
+	
+	orders_input = params[:orders]
+	@orders = parse_orders_line orders_input
+	erb :cart 
+end
+
+def parse_orders_line orders_line
+arr = []
+s1 = orders_line.split(/,/)
+s1.each do |s|
+	s2 = s.split(/\=/)
+	s3=s2[0].split(/_/)
+	
+	key=s3[1]
+	value=s2[1]
+	
+	arr2=[key, value]
+	arr.push arr2
+end
+
+return arr
+
 end
 
 

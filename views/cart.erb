@@ -1,15 +1,8 @@
+<h2> Корзина </h2>
 
-def parse_orders_line oerders_line
-	s1 = orders_line.split(/,/)
-	arr=[]
-	puts s1.inspect
-	s1.each do |s|
-		s2 = s.split(/=/)
-		s3=s2[0].split(/_/)
-		id=s3[1]
-		cnt=s2[1]
-		arr2=[id,cnt]
-		arr.push arr2
-	end
-	return arr
-end
+<table>
+
+<% @orders.each do |o|%>
+	<tr><td><%= o[1] %></td></tr>
+<% end %>
+</table>
