@@ -30,7 +30,12 @@ post '/cart' do
 	
 	@orders_input = params[:orders]
 	@orders = parse_orders_line @orders_input
-	@o
+	
+	#сообщение о пустой корзине
+	if @orders.length == 0
+		return erb "Корзина пуста"
+	end
+
 	erb :cart 
 end
 
