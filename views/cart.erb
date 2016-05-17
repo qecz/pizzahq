@@ -1,5 +1,7 @@
 <h2> Корзина </h2>
 
+
+<div id="cart">
 <table class="table table-striped" >
 <thead>
 <tr>
@@ -37,7 +39,7 @@
 
 <form action="/place_order" method="POST" role="form">
 
-<input name="order[orders_input]" type="hidden" value=<%= @orders_input %> >
+<input  name="order[orders_input]" type="hidden" value=<%= @orders_input %> >
 
   <div class="form-group">
     <label>Ваше имя</label>
@@ -58,13 +60,17 @@
   <button class="btn btn-danger" onclick="return clearcart()">Очистить</button>
 </form>
 
+</div>
+
 <script type="text/javascript">
   
 function clearcart()
 {
 
   window.localStorage.clear();
-  alert("aaa");
+update_orders_input();
+update_orders_button();
+$('#cart').text('Корзина пустая')
   return false;
 }
 
