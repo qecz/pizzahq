@@ -55,7 +55,19 @@
   </div>
 
   <button type="submit" class="btn btn-success">Сдеать заказ</button>
-
+  <button class="btn btn-danger" onclick="return clearcart()">Очистить</button>
 </form>
+
+<script type="text/javascript">
+  
+function clearcart()
+{
+
+  window.localStorage.clear();
+  alert("aaa");
+  return false;
+}
+
+</script>
 
 
