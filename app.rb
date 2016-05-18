@@ -20,6 +20,13 @@ get '/' do
 	erb :index 
 end
 
+get '/admin' do
+
+	@orders_all = Order.all
+	erb :admin
+	
+end
+
 get '/about' do
 
 	erb :about

@@ -1,0 +1,30 @@
+ <table class="table table-striped" >
+  <thead>
+  <tr>
+  <td>Имя</td>
+  <td>Телефон</td>
+  <td>Адресс</td>
+  <td>Заказа</td>
+  </tr>
+  </thead>
+  <tbody>
+  
+  <% @orders_all.each do |o|%>
+
+  	<tr>
+  	<td><%= o.name %></td> 
+  	<td><%= o.phone %></td>  
+  	<td><%= o.address %></td> 
+    <td><%= o.orders_input %></td>
+    
+  	</tr>
+
+  <% end %>
+  <tr>
+  <td></td>
+  <td></td>
+  <td></td>
+  <td></td>
+  <tr>
+  </tbody>
+  </table>
